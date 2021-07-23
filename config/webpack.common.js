@@ -1,4 +1,4 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin"); // загрузка html в dist с добавлением ссылки на скрипт и стили
+const HtmlWebpackPlugin = require("html-webpack-plugin"); // загружает html в dist с добавлением ссылок на скрипт и стили
 const paths = require("./paths");
 const isProd = process.env.NODE_ENV === "production";
 
@@ -20,11 +20,11 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ["babel-loader"], //преобразование новых конструкций для старых браузеров (транспиляция файлов ) уточнить о версиях браузера
+        use: ["babel-loader"], //преобразует новые конструкции для старых браузеров (транспиляция файлов)
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
-        type: "asset/resource", // обработка изображений с помощью url-loader
+        type: "asset/resource", // обрабатывает изображения с помощью url-loader
         generator: {
           filename: isProd ? `img/[name].[hash][ext]` : `img/[name][ext]`,
         },
@@ -35,7 +35,7 @@ module.exports = {
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf)$/,
-        type: "asset/resource", // обработка шрифтов с помощью url-loader
+        type: "asset/resource", // обрабатывает шрифты с помощью url-loader
         generator: {
           filename: isProd ? `fonts/[name].[hash][ext]` : `fonts/[name][ext]`,
           publicPath: "../",
@@ -50,5 +50,5 @@ module.exports = {
       "@": paths.src,
     },
   },
-  target: isProd ? "browserslist" : "web", //для перезагрузки браузера при каждом изменении кода (особенности webpack5)
+  target: isProd ? "browserslist" : "web", //для перезагрузки браузера при каждом изменении кода (особенности webpack 5)
 };

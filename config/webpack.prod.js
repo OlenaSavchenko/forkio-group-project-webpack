@@ -3,14 +3,14 @@ const commonConfig = require("./webpack.common");
 const { merge } = require("webpack-merge"); //обьединяет common и prod webpack
 const paths = require("./paths");
 const glob = require("glob-all");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin"); //очистка папки dist
+const { CleanWebpackPlugin } = require("clean-webpack-plugin"); //очищает папку dist
 //css
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //экспортирует минифицированный CSS в отдельный файл
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"); // минифицирует css
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"); // минифицирует CSS
 const PurgecssPlugin = require("purgecss-webpack-plugin"); //удаляет неиспользуемый CSS
 //img
-const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin"); // оптимизация картинок
-const { extendDefaultPlugins } = require("svgo"); //оптимизация svg
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin"); // оптимизирует изображения
+const { extendDefaultPlugins } = require("svgo"); //оптимизирует svg
 
 module.exports = merge(commonConfig, {
   mode: "production",
